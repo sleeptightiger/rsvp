@@ -1,5 +1,4 @@
-//update localStorage on edit
-//save edit on enter
+//update localStorage on remove
 
 document.addEventListener('DOMContentLoaded', () => {
   function supportsLocalStorage() {
@@ -14,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       //retrieve item from localStorage from previous use
       //must parse searches, which is stringified json, to return an array of searches
       //must test searches for previous input
-      var invitees = localStorage.getItem('getRecentInvitees');
+      const invitees = localStorage.getItem('getRecentInvitees');
       if(invitees) {
         return JSON.parse(invitees);
       } else {
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       //saves search string
       //validates input
       //any string with length greater than 0
-      var invitees = getRecentInvitees();
+      const invitees = getRecentInvitees();
 
       if(!str || invitees.indexOf(str) > -1) {
 
@@ -40,6 +39,33 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('getRecentInvitees', JSON.stringify(invitees));
       console.log(localStorage.getRecentInvitees);
       return true;
+  }
+
+  function updateInvitees(index, str, remove) {
+    const invitees = getRecentInvitees();
+    if(invitees.length > 0) {
+      if(remove) {
+        if (index !== -1) {
+          invitees.splice(index, 1);
+        }
+      } else {
+        invitees[index] = str;
+      }
+
+    }
+    localStorage.setItem('getRecentInvitees', JSON.stringify(invitees));
+  }
+
+  function findIndexOfLi(ul, text) {
+    const list = ul.children;
+    for (let i = 0; i < list.length; i++) {
+      const span = list[i].querySelector('span');
+      const invitee = span.textContent;
+      if(invitee === text){
+        return i;
+      }
+
+    }
   }
 
   //remove list from localStorage
@@ -131,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const text = input.value;
         input.value = '';
         const li = createLi(text);
-        //add to localStorage
         ul.appendChild(li);
       }
 
@@ -166,6 +191,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const action = button.textContent;
         const nameActions = {
           remove: () => {
+            const span = li.firstElementChild;
+            const invitee = span.textContent;
+            updateInvitees(findIndexOfLi(ul,  invitee),  invitee, true);
             ul.removeChild(li);
           },
           edit: () => {
@@ -182,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const input = li.firstElementChild;
             span.textContent = input.value;
             li.insertBefore(span, input);
+            updateInvitees(findIndexOfLi(ul, input.value), input.value, false);
             li.removeChild(input);
             button.textContent = 'edit';
           }
