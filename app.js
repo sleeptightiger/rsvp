@@ -1,4 +1,4 @@
-//update localStorage on remove
+
 
 document.addEventListener('DOMContentLoaded', () => {
   function supportsLocalStorage() {
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const li = document.createElement('li');
       appendToLi('span', 'textContent', text);
-      appendToLi('label', 'textContent', 'Confirmed')
+      appendToLi('label', 'textContent', 'Confirm')
         .appendChild(createElement('input', 'type', 'checkbox'));
       appendToLi('button', 'textContent', 'edit');
       appendToLi('button', 'textContent', 'remove');
@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         input.value = '';
         const li = createLi(text);
         ul.appendChild(li);
+
       }
 
     });
@@ -175,11 +176,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const checkbox = event.target;
       const checked = checkbox.checked;
       const listItem = checkbox.parentNode.parentNode;
+      const label = listItem.querySelector('label');
+      const input = listItem.querySelector('input');
 
       if(checked) {
+        const text = document.createTextNode('Confirmed!');
         listItem.className = 'responded';
+        label.insertBefore(text, input);
+        label.removeChild(label.firstChild);
       } else {
+        const text = document.createTextNode('Confirm');
         listItem.className = '';
+        label.insertBefore(text, input);
+        label.removeChild(label.firstChild);
+
       }
     });
 
