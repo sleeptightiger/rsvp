@@ -91,11 +91,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterLabel = document.createElement('label');
     const filterCheckBox = document.createElement('input');
 
+    div.className = 'subMain';
     filterLabel.textContent = "Hide those who haben't responded";
     filterCheckBox.type = 'checkbox';
+    filterCheckBox.className = 'filterCheck';
     div.appendChild(filterLabel);
     div.appendChild(filterCheckBox);
-    mainDiv.insertBefore(div, ul);
+    mainDiv.appendChild(div);
 
     // Initialize display list
     var recentInvitees = getRecentInvitees();
@@ -142,12 +144,19 @@ document.addEventListener('DOMContentLoaded', () => {
         return element;
       }
 
+
       const li = document.createElement('li');
       appendToLi('span', 'textContent', text);
+      const input = createElement('input', 'type', 'checkbox');
+      input.className = 'filterCheck';
       appendToLi('label', 'textContent', 'Confirm')
-        .appendChild(createElement('input', 'type', 'checkbox'));
-      appendToLi('button', 'textContent', 'edit');
-      appendToLi('button', 'textContent', 'remove');
+        .appendChild(input);
+      const editButton = createElement('button', 'textContent', 'edit');
+      editButton.className = 'edit';
+      li.appendChild(editButton);
+      const removeButton = createElement('button', 'textContent', 'remove');
+      removeButton.className = 'remove';
+      li.appendChild(removeButton);
       return li;
     }
 
@@ -210,9 +219,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const span = li.firstElementChild;
             const input = document.createElement('input');
             input.type = 'text';
+            input.className = 'editInput';
             input.value = span.textContent;
             li.insertBefore(input, span);
             li.removeChild(span);
+            input.focus();
             button.textContent = 'save';
           },
           save: () => {

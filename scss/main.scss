@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Pacifico');
+
+$bodyFont: 'Open Sans', sans-serif;
+$backgroundColor: #FFFFF2;
+$logoColor: #60463B;
+$logoFont: 'Pacifico', cursive;
+$submitButton: #EA526F;
+$submitShadow: #C0445B;
+$clearButton: #EA526F;
+$removeButton: #40476D;
+$removeShadow: #2F3450;
+$editButton: #41D3BD;
+$editShadow: #36AD9B;
+$saveButton: #40476D;
+$confrimLabel: #41D3BD;
+
+* {
+  //border: 1px solid red;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  max-width: 800px;
+  width: 80%;
+  margin: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+body {
+  background-color: $backgroundColor;
+  font-family: $bodyFont;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+}
+
+////////////////HEADER///////////////////
+
+header {
+  display: flex;
+  text-align: center;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 20px;
+  width: 100%;
+  background: repeating-linear-gradient(
+  45deg,
+  $submitButton,
+  $submitButton 30px,
+  $submitShadow 30px,
+  $submitShadow 60px
+  );
+  border-bottom: 15px solid $submitShadow;
+  padding: 50px 0;
+
+}
+
+header h1 {
+  font-family: $logoFont;
+  color: $logoColor;
+  font-size: 7em;
+  margin: 0;
+  padding: 20px;
+  letter-spacing: 2px;
+
+
+}
+
+form {
+  padding: 10px;
+
+}
+
+input {
+  padding: 7px 5px;
+  border-radius: 3px;
+  width: 30%;
+  border: 1px solid #aaa;
+  box-shadow: inset 0px 0px 2px 2px rgba(221,221,221,1);
+}
+
+.submitButton {
+  letter-spacing: 1px;
+  padding: 7px;
+  background-color: $submitButton;
+  color: $backgroundColor;
+  font-weight: 400;
+  border: none;
+  box-shadow: 1px 2px $submitShadow;
+  max-height: 35px;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: $submitShadow;
+    box-shadow: 0px 2px $submitButton;
+  }
+}
+
+/////////////MAIN//////////////////
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 30px;
+}
+
+.subMain {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.filterCheck {
+  display: inline-block;
+  width: 15px;
+  margin: 3px;
+  color: $removeButton;
+}
+
+#clear {
+  @extend .submitButton;
+  background-color: $clearButton;
+  text-transform: uppercase;
+  font-size: 1em;
+  margin: 5px;
+  width: 15%;
+  align-self: center;
+}
+
+h2 {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 5px;
+  color: $removeButton;
+}
+
+.subMain {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.main label {
+  display: inline-block;
+  margin: 5px;
+  padding-top: 3px;
+  color: $removeButton;
+}
+
+.subMain input {
+  align-self: center;
+}
+
+////////////////UL/////////////////
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: space-around;
+  padding: 20px;
+  margin: 10px auto;
+
+}
+
+li {
+  width: 30%;
+  min-width: 200px;
+  height: 30%;
+  min-height: 150px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: 5px;
+  border: 1px solid rgba(209, 209, 199, .5);
+  box-shadow: 0px 0px 2px 2px rgba(209, 209, 199, .8);
+  border-radius: 2px;
+  padding: 5px;
+  .editInput {
+    color: $removeButton;
+    width: 100%;
+    height: 25%;
+    font-size: 1.5em;
+    padding: 5px;
+    margin: 5px;
+    background-color: #fff;
+    border: 1px solid rgba(64, 71, 109, .2);
+    box-shadow: inset 0px 0px 2px 2px rgba(221,221,221,.5);
+    border-radius: 2px;
+    font-family: $bodyFont;
+    &:focus {
+      outline: none;
+    }
+  }
+  span {
+    color: $removeButton;
+    width: 100%;
+    height: 25%;
+    font-size: 1.7em;
+    padding: 5px;
+    margin: 5px;
+    background-color: #fff;
+    border: 1px solid rgba(64, 71, 109, .2);
+    box-shadow: inset 0px 0px 2px 2px rgba(221,221,221,.5);
+    border-radius: 2px;
+  }
+  label {
+    color: $logoColor;
+    width: 100%;
+    height: 10%;
+    font-size: 1em;
+    padding: 5px;
+    margin: 5px;
+    text-align: right;
+  }
+
+}
+
+
+
+li .edit {
+  @extend .submitButton;
+  margin: 5px;
+  background-color: $editButton;
+  box-shadow: 0px 2px $editShadow;
+  //width: 25%;
+  //align-self: flex-end;
+  &:hover {
+    background-color: $editShadow;
+    box-shadow: 0px 2px $editButton;
+  }
+}
+
+li .remove {
+  @extend .submitButton;
+  margin: 5px;
+  background-color: $removeButton;
+  box-shadow: 0px 2px $removeShadow;
+  &:hover {
+    background-color: $removeShadow;
+    box-shadow: 0px 2px $removeButton;
+  }
+}

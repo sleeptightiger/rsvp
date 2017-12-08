@@ -7,20 +7,20 @@
   <link href="css/normalize.css" rel="stylesheet">
 </head>
 <body>
-  <div class="wrapper">
+
     <header>
       <h1>RSVP</h1>
       <form id="registrar">
         <input type="text" name="name" placeholder="Invite Someone">
-        <button type="submit" name="submit" value="submit">Submit</button>
+        <button type="submit" name="submit" value="submit" class="submitButton">Submit</button>
       </form>
     </header>
-
-    <div class="main">
-      <h2>Invitees</h2>
-      <button name="clear" value="clear" id="clear">Clear</button>
+    <div class="wrapper">
+      <div class="main">
+        <h2>Invitees</h2>
+      </div>
       <ul id="invitedList"></ul>
-    </div>
+      <button name="clear" value="clear" id="clear">Clear</button>
   </div>
   <script type="text/javascript" src="app.js"></script>
 </body>
