@@ -26,7 +26,8 @@ header {
   width: 100%;
   background: repeating-linear-gradient(45deg, #EA526F, #EA526F 30px, #C0445B 30px, #C0445B 60px);
   border-bottom: 15px solid #C0445B;
-  padding: 50px 0; }
+  padding: 50px 0;
+  box-shadow: 0px 2px 15px 3px #d1d1c7; }
 
 header h1 {
   font-family: "Pacifico", cursive;
@@ -85,7 +86,8 @@ input {
   font-size: 1em;
   margin: 5px;
   width: 15%;
-  align-self: center; }
+  align-self: center;
+  margin-bottom: 50px; }
 
 h2 {
   font-weight: 400;
@@ -112,7 +114,6 @@ ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  justify-content: space-around;
   padding: 20px;
   margin: 10px auto; }
 
@@ -167,7 +168,7 @@ li {
 li .edit {
   margin: 5px;
   background-color: #41D3BD;
-  box-shadow: 0px 2px #36AD9B; }
+  box-shadow: 1px 2px #36AD9B; }
   li .edit:hover {
     background-color: #36AD9B;
     box-shadow: 0px 2px #41D3BD; }
@@ -175,7 +176,7 @@ li .edit {
 li .remove {
   margin: 5px;
   background-color: #40476D;
-  box-shadow: 0px 2px #2F3450; }
+  box-shadow: 1px 2px #2F3450; }
   li .remove:hover {
     background-color: #2F3450;
     box-shadow: 0px 2px #40476D; }

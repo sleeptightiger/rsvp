@@ -54,6 +54,7 @@ header {
   );
   border-bottom: 15px solid $submitShadow;
   padding: 50px 0;
+  box-shadow: 0px 2px 15px 3px rgba(209, 209, 199, 1);
 
 }
 
@@ -129,6 +130,7 @@ input {
   margin: 5px;
   width: 15%;
   align-self: center;
+  margin-bottom: 50px;
 }
 
 h2 {
@@ -161,7 +163,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  justify-content: space-around;
+  //justify-content: space-around;
   padding: 20px;
   margin: 10px auto;
 
@@ -227,7 +229,7 @@ li .edit {
   @extend .submitButton;
   margin: 5px;
   background-color: $editButton;
-  box-shadow: 0px 2px $editShadow;
+  box-shadow: 1px 2px $editShadow;
   //width: 25%;
   //align-self: flex-end;
   &:hover {
@@ -240,7 +242,7 @@ li .remove {
   @extend .submitButton;
   margin: 5px;
   background-color: $removeButton;
-  box-shadow: 0px 2px $removeShadow;
+  box-shadow: 1px 2px $removeShadow;
   &:hover {
     background-color: $removeShadow;
     box-shadow: 0px 2px $removeButton;
