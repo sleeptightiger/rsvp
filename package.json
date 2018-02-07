@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/sleeptightiger/rsvp#readme",
   "dependencies": {
+    "babel-browser": "^6.1.19",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "^1.0.17"
